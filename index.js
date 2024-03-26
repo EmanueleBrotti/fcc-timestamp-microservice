@@ -19,13 +19,13 @@ app.get("/", function (req, res) {
 });
 
 // your first API endpoint...
+app.get("/api", function (req, res) {
+  res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
+});
 
 app.get("/api/:date?", function (req, res) {
   var date;
-
-  if (!req.params.date) {
-    date = new Date();
-  } else if (/^\d+$/.test(req.params.date)) {
+  if (/^\d+$/.test(req.params.date)) {
     //contains only digits
     //if it's an unix number, multiplies to 1000s
     date = new Date(parseInt(req.params.date));
