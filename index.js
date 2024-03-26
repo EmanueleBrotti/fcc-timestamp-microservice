@@ -31,7 +31,7 @@ app.get("/api/:date", function (req, res) {
   if (/^\d+$/.test(req.params.date)) {
     //contains only digits
     //if it's an unix number, multiplies to 1000s
-    date = new Date(parseInt(req.params.date * 1000));
+    date = new Date(parseInt(req.params.date));
   } else {
     date = new Date(req.params.date);
   }
